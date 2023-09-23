@@ -19,5 +19,12 @@ describe("Bowling Game Tests", () => {
     rollMany(20, 1);
     expect(g.score()).toEqual(20);
   });
+  it("deberia devolver 16 porque el jugador no derribo 5, 5, 3 un spare en los 20 intentos", () => {
+    g.roll(5);
+    g.roll(5);
+    g.roll(3);
+    rollMany(17, 0); 
+    expect(g.score()).toEqual(16);
+  });
 
 });
