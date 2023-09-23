@@ -1,12 +1,13 @@
 class Game{
   constructor() {
     this.rolls = [];
+    this.scoreValue = 0;
   }
   roll(pins) {
-    this.rolls.push(pins);
+    this.scoreValue += pins;
   }
   score(){
-    return 0;
+    return this.scoreValue;
   }
 }
 
