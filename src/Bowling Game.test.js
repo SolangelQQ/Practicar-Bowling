@@ -14,6 +14,9 @@ describe("Bowling Game Tests", () => {
     g.roll(5);
     g.roll(5);
   }
+  function rollStrike(){
+    g.roll(10);
+  }
   it("deberia devolver 0 porque el jugador no derribo ningun pin en los 10 turnos", () => {
     rollMany(20, 0);
     expect(g.score()).toEqual(0);
@@ -32,7 +35,7 @@ describe("Bowling Game Tests", () => {
   });
 
   it("deberia devolver 24 porque el jugador no derribo 10, 3, 4 un strike en los 20 intentos", () => {
-    g.roll(10);
+    rollStrike();
     g.roll(3);
     g.roll(4);
     rollMany(16, 0); 
