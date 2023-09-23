@@ -10,17 +10,26 @@ class Game{
   }
   score(){
     let scoreValue = 0;
-    let i = 0;
+    let frameIndex = 0;
     for(let frame = 0; frame < 10; frame ++){
-      if(this.rolls[i] + this.rolls[i+1] == 10){ //spare
-        scoreValue += 10 + this.rolls[i+2];
-        i += 2;
+      if(this.rolls[frameIndex] == 10){ //strike
+        scoreValue += 10 + this.rolls[frameIndex+1] + this.rolls[frameIndex+2];
+        frameIndex++;
+      } 
+      else if(this.isSpare(frameIndex)){ //spare
+        scoreValue += 10 + this.rolls[frameIndex+2];
+        frameIndex += 2;
       }else{
-        scoreValue += this.rolls[i] + this.rolls[i + 1];
-        i += 2;
+        scoreValue += this.rolls[frameIndex] + 
+        this.rolls[frameIndex + 1];
+        frameIndex += 2;
       }
     }
     return scoreValue;
+  }
+  isSpare(frameIndex) {
+    return this.rolls[frameIndex] + this.rolls[frameIndex+1] == 10; 
+    
   }
 }
 
