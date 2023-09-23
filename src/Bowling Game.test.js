@@ -41,4 +41,9 @@ describe("Bowling Game Tests", () => {
     rollMany(16, 0); 
     expect(g.score()).toEqual(24);
   });
+
+  it("deberia devolver 300 porque el jugador realizo un juego perfecto en los 20 intentos", () => {
+    rollMany(12, 10); 
+    expect(g.score()).toEqual(300);
+  });
 });
